@@ -6,9 +6,6 @@ import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
-import androidx.annotation.Nullable;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
-
 import android.util.Log;
 
 import com.stardust.autojs.annotation.ScriptInterface;
@@ -16,6 +13,9 @@ import com.stardust.util.IntentUtil;
 
 import java.lang.ref.WeakReference;
 import java.util.List;
+
+import androidx.annotation.Nullable;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 /**
  * Created by Stardust on 2017/4/2.

@@ -1,5 +1,6 @@
 package com.stardust.autojs.core.ui.dialog;
 
+import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
@@ -11,12 +12,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Looper;
 import android.os.Message;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-import androidx.annotation.UiThread;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.ActionMode;
 import android.view.ContextMenu;
 import android.view.KeyEvent;
@@ -46,6 +41,12 @@ import com.stardust.util.UiHandler;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.UiThread;
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * Created by Stardust on 2018/4/17.
@@ -286,7 +287,7 @@ public class JsDialog {
 
     @Deprecated
     public void setMessage(CharSequence message) {
-        mDialog.setMessage(message);
+        mDialog.setContent(message);
     }
 
     @Nullable
@@ -637,6 +638,7 @@ public class JsDialog {
         mDialog.onContextMenuClosed(menu);
     }
 
+    @TargetApi(Build.VERSION_CODES.M)
     public boolean onSearchRequested(@NonNull SearchEvent searchEvent) {
         return mDialog.onSearchRequested(searchEvent);
     }
@@ -645,6 +647,7 @@ public class JsDialog {
         return mDialog.onSearchRequested();
     }
 
+    @TargetApi(Build.VERSION_CODES.M)
     public SearchEvent getSearchEvent() {
         return mDialog.getSearchEvent();
     }
@@ -653,6 +656,7 @@ public class JsDialog {
         return mDialog.onWindowStartingActionMode(callback);
     }
 
+    @TargetApi(Build.VERSION_CODES.M)
     public ActionMode onWindowStartingActionMode(ActionMode.Callback callback, int type) {
         return mDialog.onWindowStartingActionMode(callback, type);
     }
@@ -733,6 +737,7 @@ public class JsDialog {
         mDialog.setOnKeyListener(onKeyListener);
     }
 
+    @TargetApi(Build.VERSION_CODES.N)
     public void onProvideKeyboardShortcuts(List<KeyboardShortcutGroup> data, @Nullable Menu menu, int deviceId) {
         mDialog.onProvideKeyboardShortcuts(data, menu, deviceId);
     }
